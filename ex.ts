@@ -1,0 +1,140 @@
+const bigger: (num1: number, num2: number) => number = (
+  num1: number,
+  num2: number
+): number => {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+};
+
+const printBiggest = (num1: number, num2: number): void => {
+  console.log(bigger(num1, num2));
+};
+
+const evenOrOddNumber = (num: number): string => {
+  return num % 2 == 0 ? "even" : "odd";
+};
+
+const getLength = (string: string): number => {
+  return string.length;
+};
+
+const returnAArray = (num: number): number[] => {
+  const arr: number[] = [];
+  for (let i = 0; i < num; i++) {
+    arr.push(i + 1);
+  }
+  return arr;
+};
+
+const biggestInTheArray = (arr: number[]): number => {
+  let biggest: number = 0;
+  for (let num = 0; num < arr.length; num++) {
+    if (arr[num] > biggest) {
+      biggest = arr[num];
+    }
+  }
+  return biggest;
+};
+
+const biggestInTheArr = (arr: number[]): number => {
+  return Math.max(...arr);
+};
+
+type Person = {
+  Name: string;
+  Age: number;
+  isStudent: boolean;
+};
+
+const me: Person = {
+  Name: "menashe",
+  Age: 23,
+  isStudent: true,
+};
+
+const printPerson = (object: Person): void => {
+  console.log(object.Name, object.Age, object.isStudent);
+};
+
+const isMinor = (object: Person): boolean => {
+  return object.Age < 18 ? true : false;
+};
+
+interface Book {
+  Title: string;
+  Author: string;
+  Year: number;
+}
+
+type Reader = {
+  Person: Person & { favoriteBook: Book };
+};
+
+const readers: Reader[] = [
+  {
+    Person: {
+      Name: "John",
+      Age: 20,
+      isStudent: true,
+      favoriteBook: {
+        Title: "The Great Gatsby",
+        Author: "F. Scott Fitzgerald",
+        Year: 1925,
+      },
+    },
+  },
+  {
+    Person: {
+      Name: "Jane",
+      Age: 25,
+      isStudent: false,
+      favoriteBook: {
+        Title: "Pride and Prejudice",
+        Author: "Jane Austen",
+        Year: 1813,
+      },
+    },
+  },
+  {
+    Person: {
+      Name: "Bob",
+      Age: 30,
+      isStudent: false,
+      favoriteBook: {
+        Title: "The Catcher in the Rye",
+        Author: "J.D. Salinger",
+        Year: 1951,
+      },
+    },
+  },
+];
+
+const TheOldestReader = (array: Reader[]): Reader => {
+  let oldest: number = 0;
+  let oldestIndex: number = -1;
+  for (let reader = 0; reader < array.length; reader++) {
+    let currentAge = array[reader].Person.Age;
+    if (currentAge > oldest) {
+      oldest = currentAge;
+      oldestIndex = reader;
+    }
+  }
+  return array[oldestIndex];
+};
+
+const TheOldestBook = (array: Reader[]): Reader => {
+  let oldest: number = 0;
+  let oldestIndex: number = -1;
+  for (let reader = 0; reader < array.length; reader++) {
+    let oldYear = array[reader].Person.favoriteBook.Year;
+    if (oldYear > oldest) {
+      oldest = oldYear;
+      oldestIndex = reader;
+    }
+  }
+  return array[oldestIndex];
+};
+
+console.log(TheOldestBook(readers));
