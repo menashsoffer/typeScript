@@ -1,12 +1,11 @@
 {
-  "name": "leson-1",
+  "name": "leson-2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./dist/ex.js",
-    "build": "tsc"
+    "start": "tsc && node ./dist/exsrsis2.js"
   },
   "keywords": [],
   "author": "",
